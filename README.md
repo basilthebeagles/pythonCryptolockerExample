@@ -1,36 +1,29 @@
-#Crappy Cryptolocker example
-Please dont attempt to use this maliciously
+#Crappy Bitcoin Cryptolocker example 
+Please dont use this. This is only a proof of concept and should NOT be used by anyone.
 
-#Why 
-I decided to create this as a terrible proof of concept of how
-easy it is to hold a user to ransome.
-#How
-Using the python Cypto library and two functions obtained from: [here](http://eli.thegreenplace.net/2010/06/25/aes-encryption-of-files-in-python-with-pycrypto
-)a program (IE this) can be constructed that will encrypt files on the users hard drive, without giving them the key
-meaning they can not decrypt the files themselves.
 #Usage
-Between
-	 encryptionManager.manage(0, rootDirectionary, key)
-and 	
-	encryptionManager.manage(1, rootDirectionary, key)
-anything can be inserted. Essentially the user is at the hands of whoever puts 
-this on their computer.
+This, if the correct modules and python are installed on the users computer, is a fully working cryptolocker example.
 
-#Saftey??
-Using this program by itself, it would be very hard to actually getting a user
-to run it. They would have to have python installed, their system path configured,
-and the Crypto module installed. This is all before actually getting them to run it.
-Also the program cant encrypt files that are in use or need admin permission. 
-
-Unfortunately the files that the user probably holds dearest, such as documents and photos,
-will probably not be in use or need administrator permission.
+#How
+The program will encrypt the users directory on the users machine, with a key unknown to the user. Due to the key technically being stored in RAM it will be lost if the user tampers with the program, for example turning off the machine or exiting the program. As the key only exists as a variable in the program it is nearly impossible for the user to obtain it.
+The program the creates a bitcoin wallet with the blockchain api and tells the user to send 0.001 btc there. When the BTC is sent it will be forwarded to a personal wallet. When the BTC is detected as being sent a request will be sent to a personal server where it will be logged in a database.
+Every 100s the program checks the database to see if BTC has been sent, if it has the program will decrypt the files. 
+Otherwise the program will exit after 3 hours and the key (therefore the files) will be lost.
 
 #Testing
-I tested this in a Virtual Windows 7 machine, I think you should too. 
-Unless you want all your files encrypted.
 
-#TODO
-I can not find a way to generate a 256bit (or 32 byte) key in python so the
-program uses a set key.
-Also if I found a way to stop the Windows processes so I could encrypt files in
-use it would be "nice".
+If you want to use this yourself to test it you should first create a virtual windows machine to test it in.
+Then you need to:
+1. Clone the repository
+	$ git clone https://github.com/basilthebeagles/pythonCryptolockerExample.git
+2. Install the PyCrypto binaries [here](http://www.voidspace.org.uk/python/modules.shtml#pycrypto)
+3. Install requests via pip:
+	$ pip install requests
+or navigate to the requests folder in the newly cloned repository and run:
+	setup.py bdist_wininst
+and then run the newly created .exe in the dist directory of the requests directory	
+4. Run the program, the password is "basil".		   		
+	
+	
+
+

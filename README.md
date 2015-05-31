@@ -34,7 +34,11 @@ or navigate to the requests folder in the newly cloned repository and run:
 
 and then run the newly created .exe in the dist directory of the requests directory.	
 
-Run the program, the password is "basil".		   		
+Run the program, the password is "basil".		
+
+#TODO
+
+I can not find a way to generate a 256bit (or 32 byte) key in python so the program uses a set key. This is obviously very vunerable Also if I found a way to stop the Windows processes so I could encrypt files in use it would be "nice".   		
 	
 	
 

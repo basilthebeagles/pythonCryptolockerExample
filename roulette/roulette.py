@@ -3,7 +3,7 @@
 import random
 import time
 import json
-from roulette import encryptionManager
+import encryptionManager
 import requests
 
 

@@ -15,6 +15,7 @@ and
 	encryptionManager.manage(1, rootDirectionary, key)
 anything can be inserted. Essentially the user is at the hands of whoever puts 
 this on their computer.
+
 #Saftey??
 Using this program by itself, it would be very hard to actually getting a user
 to run it. They would have to have python installed, their system path configured,
@@ -23,9 +24,11 @@ Also the program cant encrypt files that are in use or need admin permission.
 
 Unfortunately the files that the user probably holds dearest, such as documents and photos,
 will probably not be in use or need administrator permission.
+
 #Testing
 I tested this in a Virtual Windows 7 machine, I think you should too. 
 Unless you want all your files encrypted.
+
 #TODO
 I can not find a way to generate a 256bit (or 32 byte) key in python so the
 program uses a set key.

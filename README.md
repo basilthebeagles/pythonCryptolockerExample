@@ -23,7 +23,11 @@ Clone the repository
 
 		$ git clone https://github.com/basilthebeagles/pythonCryptolockerExample.git
 	
-Install the PyCrypto binaries [here](http://www.voidspace.org.uk/python/modules.shtml#pycrypto)
+Install the PyCrypto binaries 
+
+Widnows:[here](http://www.voidspace.org.uk/python/modules.shtml#pycrypto)
+Linux/Mac: [here](https://www.dlitz.net/software/pycrypto/)
+
 Install requests via pip:
 
 		$ pip install requests

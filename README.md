@@ -34,9 +34,9 @@ Install requests via pip:
 	
 or navigate to the requests folder in the newly cloned repository and run:
 
-Windows:	setup.py bdist_wininst
+Windows:		setup.py bdist_wininst
 
-Linux:    sudo python setup.py
+Linux		    sudo python setup.py
 
 and then run the newly created .exe in the dist directory of the requests directory.	
 
